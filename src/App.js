@@ -24,6 +24,7 @@ const Card = (props) => {
       <div style={{display:'inline-block', marginLeft:10}}>
         <div style={{fontSize:'1.25em',fontWeight:'bold'}}>{props.name}</div>
         <div>{props.company}</div>
+        <div>{props.url}</div>
       </div>
     </div>
   );
@@ -32,7 +33,7 @@ const Card = (props) => {
 const CardList = (props) => {
   return (
     <div>
-     {props.cards.map(card => <Card {...card} /> )}
+     {props.cards.map(card => <Card key={card.id} {...card} /> )}
     </div>
   )
 }
@@ -45,6 +46,7 @@ class Form extends React.Component {
       axios.get(`https://api.github.com/users/${this.state.userName}`)
       .then(resp => {
         this.props.onSubmit(resp.data);
+        this.setState({userName:''})
       });
   }
   render() {
@@ -61,16 +63,16 @@ class Form extends React.Component {
 class App extends Component {
    state = {
      cards : [
-      {
-        name:"RaghottamK",
-        avatar_url:"https://avatars3.githubusercontent.com/u/23549690?v=4",
-        company:"Cerner"
-      },
-      {
-        name:"Pooja Bhaumik",
-        avatar_url:"https://avatars3.githubusercontent.com/u/19394896?v=4",
-        company:"xxCode"
-      }
+      // {
+      //   name:"RaghottamK",
+      //   avatar_url:"https://avatars3.githubusercontent.com/u/23549690?v=4",
+      //   company:"Cerner"
+      // },
+      // {
+      //   name:"Pooja Bhaumik",
+      //   avatar_url:"https://avatars3.githubusercontent.com/u/19394896?v=4",
+      //   company:"xxCode"
+      // }
     ]
 }
 
