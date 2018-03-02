@@ -22,7 +22,7 @@ const Answer = (props) => {
 class Game extends Component {
     render() {
         return (
-            <div>
+            <div className="container">
                 <h3>Play Nine</h3>
                 <Stars />
                 <Button />
